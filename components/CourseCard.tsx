@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface CourseCardProps {
   name: string;
   code: string;
@@ -5,6 +7,7 @@ interface CourseCardProps {
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   description?: string;
   icon?: React.ReactNode;
+  slug?: string;
 }
 
 const CourseCard = ({
@@ -14,6 +17,7 @@ const CourseCard = ({
   level,
   description,
   icon,
+  slug,
 }: CourseCardProps) => {
   const getLevelColor = (level: string) => {
     switch (level) {
@@ -28,8 +32,8 @@ const CourseCard = ({
     }
   };
 
-  return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-200 group">
+  const cardContent = (
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-lg transition-all duration-300 hover:border-blue-200 group cursor-pointer">
       <div className="flex items-start justify-between mb-4">
         <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300">
           {icon || (
@@ -66,24 +70,38 @@ const CourseCard = ({
         <p className="text-sm text-gray-500 mb-4 line-clamp-2">{description}</p>
       )}
 
-      <div className="flex items-center text-sm text-gray-500 mt-4 pt-4 border-t border-gray-50">
-        <svg
-          className="w-4 h-4 mr-2 text-gray-400"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <span>{duration}</span>
+      <div className="flex items-center justify-between text-sm text-gray-500 mt-4 pt-4 border-t border-gray-50">
+        <div className="flex items-center">
+          <svg
+            className="w-4 h-4 mr-2 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>{duration}</span>
+        </div>
+        <span className="text-blue-600 font-medium text-xs group-hover:translate-x-1 transition-transform duration-200 flex items-center">
+          View Details
+          <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </span>
       </div>
     </div>
   );
+
+  if (slug) {
+    return <Link href={`/courses/${slug}`}>{cardContent}</Link>;
+  }
+
+  return cardContent;
 };
 
 export default CourseCard;

@@ -10,6 +10,7 @@ const courses = [
     code: 'WD101',
     duration: '12 Weeks',
     level: 'Beginner' as const,
+    slug: 'web-development',
     description:
       'Learn modern web development with HTML, CSS, JavaScript, React, and Node.js. Build responsive and interactive websites.',
   },
@@ -18,6 +19,7 @@ const courses = [
     code: 'SE201',
     duration: '16 Weeks',
     level: 'Intermediate' as const,
+    slug: 'software-engineering',
     description:
       'Master software development lifecycle, design patterns, agile methodologies, and best practices in software engineering.',
   },
@@ -26,6 +28,7 @@ const courses = [
     code: 'DS301',
     duration: '14 Weeks',
     level: 'Intermediate' as const,
+    slug: 'data-science',
     description:
       'Dive into data analysis, machine learning, Python programming, and statistical methods for data-driven decision making.',
   },
@@ -34,6 +37,7 @@ const courses = [
     code: 'CS401',
     duration: '10 Weeks',
     level: 'Advanced' as const,
+    slug: 'cyber-security',
     description:
       'Understand network security, ethical hacking, cryptography, and protect systems from cyber threats.',
   },
@@ -42,6 +46,7 @@ const courses = [
     code: 'CC501',
     duration: '8 Weeks',
     level: 'Intermediate' as const,
+    slug: 'cloud-computing',
     description:
       'Learn AWS, Azure, and Google Cloud platforms. Deploy and manage scalable cloud infrastructure.',
   },
@@ -50,6 +55,7 @@ const courses = [
     code: 'MAD601',
     duration: '12 Weeks',
     level: 'Beginner' as const,
+    slug: 'mobile-app-development',
     description:
       'Build native and cross-platform mobile applications using React Native and Flutter frameworks.',
   },
@@ -175,6 +181,7 @@ export default function CoursesPage() {
               level={course.level}
               description={course.description}
               icon={courseIcons[course.name]}
+              slug={course.slug}
             />
           ))}
         </div>
