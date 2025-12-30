@@ -5,7 +5,7 @@ import StatCard from '@/components/StatCard';
 
 export default function DashboardPage() {
   // Hardcoded student data
-  const studentName = 'Alex Johnson';
+  const studentName = 'Samsudeen Ashad';
 
   return (
     <div className="min-h-screen bg-gray-50">
