@@ -10,6 +10,7 @@ const Navbar = () => {
     { href: '/dashboard', label: 'Dashboard' },
     { href: '/courses', label: 'Courses' },
     { href: '/register', label: 'Register' },
+    { href: '/feedback', label: 'Feedback' },
     { href: '/profile', label: 'Profile' },
   ];
 

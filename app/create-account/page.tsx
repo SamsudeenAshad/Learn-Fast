@@ -38,40 +38,11 @@ export default function CreateAccountPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Show success popup (no actual account creation - UI prototype only)
     setShowSuccess(true);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex flex-col">
-      {/* Header */}
-      <header className="py-6 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-center">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-              <svg
-                className="w-7 h-7 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">
-                Learn<span className="text-blue-600">Fast</span>
-              </h1>
-            </div>
-          </Link>
-        </div>
-      </header>
-
       {/* Success Popup Modal */}
       {showSuccess && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -108,7 +79,7 @@ export default function CreateAccountPage() {
                 Welcome to Learn Fast, {formData.firstName}! Your account has been successfully created.
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                You can now log in to access your courses.
+                You can now login with your credentials.
               </p>
             </div>
             
@@ -125,6 +96,34 @@ export default function CreateAccountPage() {
           </div>
         </div>
       )}
+
+      {/* Header */}
+      <header className="py-6 px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-center">
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+              <svg
+                className="w-7 h-7 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Learn<span className="text-blue-600">Fast</span>
+              </h1>
+            </div>
+          </Link>
+        </div>
+      </header>
 
       {/* Main Content */}
       <main className="flex-1 flex items-center justify-center px-4 py-8">
@@ -156,11 +155,11 @@ export default function CreateAccountPage() {
                     id="firstName"
                     name="firstName"
                     type="text"
-                    required
                     value={formData.firstName}
                     onChange={handleChange}
                     placeholder="John"
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    required
                   />
                 </div>
                 <div>
@@ -174,11 +173,11 @@ export default function CreateAccountPage() {
                     id="lastName"
                     name="lastName"
                     type="text"
-                    required
                     value={formData.lastName}
                     onChange={handleChange}
                     placeholder="Doe"
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    required
                   />
                 </div>
               </div>
@@ -211,11 +210,11 @@ export default function CreateAccountPage() {
                     id="email"
                     name="email"
                     type="email"
-                    required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john.doe@example.com"
+                    placeholder="john.doe@email.com"
                     className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    required
                   />
                 </div>
               </div>
@@ -248,11 +247,11 @@ export default function CreateAccountPage() {
                     id="phone"
                     name="phone"
                     type="tel"
-                    required
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+94 77 123 4567"
                     className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                    required
                   />
                 </div>
               </div>
@@ -269,10 +268,10 @@ export default function CreateAccountPage() {
                   <select
                     id="program"
                     name="program"
-                    required
                     value={formData.program}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white appearance-none"
+                    required
                   >
                     <option value="">Choose a program...</option>
                     {programs.map((program, index) => (
@@ -282,18 +281,8 @@ export default function CreateAccountPage() {
                     ))}
                   </select>
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <svg
-                      className="w-5 h-5 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
+                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </div>
                 </div>
@@ -328,11 +317,11 @@ export default function CreateAccountPage() {
                       id="password"
                       name="password"
                       type="password"
-                      required
                       value={formData.password}
                       onChange={handleChange}
                       placeholder="••••••••"
                       className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                      required
                     />
                   </div>
                 </div>
@@ -363,11 +352,11 @@ export default function CreateAccountPage() {
                       id="confirmPassword"
                       name="confirmPassword"
                       type="password"
-                      required
                       value={formData.confirmPassword}
                       onChange={handleChange}
                       placeholder="••••••••"
                       className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
+                      required
                     />
                   </div>
                 </div>
@@ -379,26 +368,18 @@ export default function CreateAccountPage() {
                   id="agreeTerms"
                   name="agreeTerms"
                   type="checkbox"
-                  required
                   checked={formData.agreeTerms}
                   onChange={handleChange}
                   className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
+                  required
                 />
-                <label htmlFor="agreeTerms" className="ml-2 text-sm text-gray-600">
+                <label htmlFor="agreeTerms" className="ml-3 text-sm text-gray-600">
                   I agree to the{' '}
-                  <button
-                    type="button"
-                    className="text-blue-600 hover:text-blue-700 font-medium"
-                    onClick={() => alert('Terms of Service - UI prototype only')}
-                  >
+                  <button type="button" className="text-blue-600 hover:text-blue-700 font-medium">
                     Terms of Service
                   </button>{' '}
                   and{' '}
-                  <button
-                    type="button"
-                    className="text-blue-600 hover:text-blue-700 font-medium"
-                    onClick={() => alert('Privacy Policy - UI prototype only')}
-                  >
+                  <button type="button" className="text-blue-600 hover:text-blue-700 font-medium">
                     Privacy Policy
                   </button>
                 </label>
@@ -410,28 +391,17 @@ export default function CreateAccountPage() {
               </Button>
             </form>
 
-            {/* Divider */}
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-200"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white text-gray-500">
-                    Already have an account?
-                  </span>
-                </div>
-              </div>
-            </div>
-
             {/* Login Link */}
             <div className="mt-6 text-center">
-              <Link
-                href="/"
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm"
-              >
-                Sign in instead
-              </Link>
+              <p className="text-sm text-gray-500">
+                Already have an account?{' '}
+                <Link
+                  href="/"
+                  className="text-blue-600 hover:text-blue-700 font-medium"
+                >
+                  Sign in
+                </Link>
+              </p>
             </div>
           </div>
 
