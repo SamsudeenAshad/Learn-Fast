@@ -4,10 +4,10 @@ import Navbar from '@/components/Navbar';
 
 // Static student data
 const studentData = {
-  name: 'Alex Johnson',
+  name: 'Samsudeen Ashad',
   studentId: 'STU-2024-001',
-  email: 'alex.johnson@learnfast.com',
-  phone: '+1 (555) 123-4567',
+  email: 'samsudeen.ashad@learnfast.com',
+  phone: '+94 77 123 4567',
   program: 'Bachelor of Science in Information Technology',
   enrollmentDate: 'September 2024',
   expectedGraduation: 'May 2028',

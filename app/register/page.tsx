@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Button from '@/components/Button';
 
@@ -15,6 +16,7 @@ const availableCourses = [
 ];
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [selectedCourses, setSelectedCourses] = useState<number[]>([]);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -33,7 +35,10 @@ export default function RegisterPage() {
       return;
     }
     setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 3000);
+    // Navigate to dashboard after 2 seconds
+    setTimeout(() => {
+      router.push('/dashboard');
+    }, 2000);
   };
 
   return (
@@ -64,7 +69,7 @@ export default function RegisterPage() {
                 Course registered successfully!
               </h3>
               <p className="text-sm text-green-600">
-                You have been enrolled in {selectedCourses.length} course(s).
+                You have been enrolled in {selectedCourses.length} course(s). Redirecting to dashboard...
               </p>
             </div>
           </div>
